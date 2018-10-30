@@ -11,7 +11,7 @@ public class RecordServiceCTL {
 	private static enum State {ROOM, SERVICE, CHARGE, CANCELLED, COMPLETED};
 	
 	private Hotel hotel;
-	private RecordServiceUI recordServiceUI;
+	public RecordServiceUI recordServiceUI;
 	private State state;
 	
 	private Booking booking;
