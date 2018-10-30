@@ -1,21 +1,13 @@
 package hotel.checkout;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
-import org.mockito.MockitoAnnotations;
-import org.mockito.Mock;
+
 import org.mockito.junit.jupiter.MockitoExtension;
 
 
@@ -36,7 +28,6 @@ import hotel.service.RecordServiceUI;
 @ExtendWith(MockitoExtension.class)
 class TestBugOne {
 	
-	//@Mock CheckoutUI checkoutUi;
 	CheckinUI checkinUi;
 	CheckoutUI checkoutUi;
 	RecordServiceUI recordServiceUi;
@@ -73,10 +64,7 @@ class TestBugOne {
 	static void setUpBeforeClass() throws Exception {
 		format = new SimpleDateFormat("dd-MM-yyyy");		
 	}
-
-	@AfterAll
-	static void tearDownAfterClass() throws Exception {
-	}
+	
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -107,8 +95,8 @@ class TestBugOne {
 		room = checkInControl.hotel.findAvailableRoom(roomType, arrivalDate, stayLength);
 		guest = new Guest(guestName, guestAddress, phoneNumber);
 		confirmationNumber = checkInControl.hotel.book(room, guest, arrivalDate, stayLength, occupantNumber, creditCard);
-		
 	}
+	
 	
 	@Test
 	void testServiceChargeError() {
@@ -121,7 +109,6 @@ class TestBugOne {
 		
 		//act
 		checkOutControl.state = CheckoutCTL.State.ROOM;
-		checkOutControl.roomIdEntered(roomId);
-		
+		checkOutControl.roomIdEntered(roomId);	
 	}
 }
