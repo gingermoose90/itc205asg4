@@ -11,8 +11,8 @@ public class CheckinCTL {
 	
 	private enum State {CHECKING, CONFIRMING, CANCELLED, COMPLETED };
 	
-	private Hotel hotel;
-	private CheckinUI checkInUI;
+	public Hotel hotel;
+	public CheckinUI checkInUI;
 	private State state;
 	private Booking booking = null;
 	private long confirmationNumber;

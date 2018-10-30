@@ -1,4 +1,4 @@
-package hotel.checkout;
+	package hotel.checkout;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -14,11 +14,11 @@ import hotel.utils.IOUtils;
 
 public class CheckoutCTL {
 
-	private enum State {ROOM, ACCEPT, CREDIT, CANCELLED, COMPLETED };
+	protected enum State {ROOM, ACCEPT, CREDIT, CANCELLED, COMPLETED };
 	
-	private Hotel hotel;
-	private State state;
-	private CheckoutUI checkoutUI;
+	public Hotel hotel;
+	protected State state;
+	protected CheckoutUI checkoutUI;
 	private double total;
 	private int roomId;
 
