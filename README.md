@@ -15,4 +15,7 @@ These classes automate the buggy behaviour with the UI output shown in the conso
 The debugging log file is located at:
 itc205asg4>test>debug_log>itc205asg4_debuglog.txt
 
+The before and after screenshots of the debugging process including variable values are located at:
+itc205asg4>test>before_after>
+
 There is an empty source folder called testfolder. This can be ignored.
