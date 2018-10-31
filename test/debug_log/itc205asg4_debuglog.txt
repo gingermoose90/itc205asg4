@@ -1,0 +1,39 @@
+ITC205_A_LOG
+
+
+SERVICE CHARGES ZERO BUG
+
+H1 - values are not printing out correctly
+test - inspect service charge value in CheckoutCTL at ln 69
+result - cost value is 0, values are printing out correctly
+
+H2 - incorrect value of variable cost is being passed to RecordServiceCTL serviceDetailsEntered() method
+test - inspect value of cost variable at ln 57 of RecordServiceCTL, before it passes value to hotel.addServiceCharge
+result - cost value is 15.00, correct value is being passed to hotel.addServiceCharge
+
+H3 - incorrect value of variable cost being passed from hotel.addServiceCharge method to booking.addServiceCharge
+test - inspect value of cost at ln 118 of Hotel 
+result - cost value is 15.00, correct value is being passed to booking.addServiceCharge
+
+H4 - incorrect value of variable cost is being passed from booking.addServiceCharge to charges.add
+test - inspect value of cost at ln 142 of Booking, before is passes value to charges.add
+result - bug found, at ln141 of Booking there is a type, addServiceCharge accepts a variable named cosst and passes
+another variable cost to charges.add
+
+
+ADD SERVICE CHARGE AFTER CHECKOUT BUG
+
+H1 - booking exists in active bookings list
+test - inspect result of booking at ln 40 of RecordServiceCTL, if booking for David exists in list then booking is 
+still in active list
+result - the booking which should have been checked out still exists in active bookings list
+
+H2 - booking does not get removed from active bookings list in CheckoutCTL
+test - check state of ActiveBookingsByRoomId list at end of CheckoutCTL.creditDetailsEntered ln 122 to see if booking 
+for David still exists
+result - the booking still exists in Hotel's ActiveBookingsByRoomId list at the end of the CheckoutCTL use case
+
+H3 - Hotel.checkout does not remove booking from list of ActiveBookingsByRoomId
+test - inspect ActiveBookingsByRoomId list at start and end of Hotel.checkout (ln 122-128)
+to see if booking for David is still in list
+result - bug found, booking for David still exists in Hotel's ActiveBookingsByRoomId list after Hotel.checkout
